@@ -2,13 +2,19 @@ Dota-2-Building-Helper
 ======================
 
 Building Helper Library for Dota 2 Modding
+
 Author: Myll
 
 (1) BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)
+
 Adds a new building to the custom grid given the target point, the size, and the owner's hero.
+
 vPoint: The raw point where the user wants to place the building.
+
 nSize: Length of 1 side of the building. Buildings must be square shaped. Example: nSize=2 would be 2x64 units. So, the building covers (2x64) by (2x64) units, or a total of 4 squares.
+
 vOwnersHero: The hero which owns this building.
+
 Returns -1 if a building can't be built at the location.
 
 (2) BuildingHelper:AddBuilding(building, vOwnersHero)
