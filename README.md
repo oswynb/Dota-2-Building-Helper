@@ -7,6 +7,8 @@ Author: Myll
 
 Demo: https://www.youtube.com/watch?v=NUuDTq3k18w
 
+How to install: Place buildinghelper.lua in your vscripts and say `require('buildinghelper')` in `addon_game_mode.lua`
+
 **(1) BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)**
 
 Adds a new building to the custom grid given the target point, the size, and the owner's hero.
