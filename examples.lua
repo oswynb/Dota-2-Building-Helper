@@ -15,7 +15,7 @@ function getBuildingPoint(keys)
 		BuildingHelper:AddBuilding(farm)
 		farm:UpdateHealth(BUILD_TIME,true,.85)
 		farm:SetHullRadius(64)
-		farm:SetControllableByPlayer( plyID, true )
+		farm:SetControllableByPlayer( keys.caster:GetPlayerID(), true )
 	else
 		--Fire a game event here and use Actionscript to let the player know he can't place a building at this spot.
 	end
@@ -35,6 +35,6 @@ function getHardFarmPoint(keys)
 		BuildingHelper:AddBuilding(farm)
 		farm:UpdateHealth(BUILD_TIME,true,.8)
 		farm:SetHullRadius(128)
-		farm:SetControllableByPlayer( plyID, true )
+		farm:SetControllableByPlayer( keys.caster:GetPlayerID(), true )
 	end
 end
