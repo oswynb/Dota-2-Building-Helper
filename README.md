@@ -22,6 +22,7 @@ Returns -1 if a building can't be built at the location.
 Sub-functions of (2):
 
 **RemoveBuilding(nSize, bKill)**
+
 Removes this building from the custom grid.
 *nSize:* The size of the building (see above).
 *bKill:* Whether to ForceKill(false) the building or not.
@@ -43,6 +44,7 @@ Return whether this building should have a fire effect when its HP gets below 50
 
 **(3) BuildingHelper:AddUnit(unit)**
 Adds functionality to unit interactions with buildings.
+
 Sub-functions of (3):
 
 **GeneratePathingMap()**
@@ -64,10 +66,12 @@ Other functions:
 Returns whether this rectangular area contains a blocked square (bool).
 
 **BuildingHelper:SetForceUnitsAway(bForceAway)**
+
 Whether units should be forced away when a building is built on top of them. If false, buildings can not be built on top of units. Default is false.
 Owners of buildings can always build buildings on top of themselves, and they are always forced away.
 
 **snapToGrid64(coord)**
+
 Snaps a coordinate to the 64-resolution grid.
 
 **snapToGrid32(coord)**
