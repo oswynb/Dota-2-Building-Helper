@@ -2,6 +2,7 @@
 	Some tips:
 	Make sure you add your units first somewhere in your code before adding any buildings, or else they won't be checked for collision:
 	BuildingHelper:AddUnit(heroEntity)
+	Put BuildingHelper:BlockGridNavSquares(nMapLength) in your InitGameMode function.
 ]]
 
 BUILD_TIME=1.0
