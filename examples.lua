@@ -35,6 +35,6 @@ function getHardFarmPoint(keys)
 		BuildingHelper:AddBuilding(farm)
 		farm:UpdateHealth(BUILD_TIME,true,.8)
 		farm:SetHullRadius(128)
-		farm:SetControllableByPlayer( keys.caster:GetPlayerID(), true )
+		farm:SetControllableByPlayer( caster:GetPlayerID(), true )
 	end
 end
