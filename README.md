@@ -35,17 +35,17 @@ Sets the owner of this building (a hero).
 
 Returns the owner of this building (a hero).
 
-**UpdateHealth(fBuildTime)**
-
+**UpdateHealth(fBuildTime, bScale, fMaxScale)**
+*bScale:* Whether to add the scaling effect or not.
+*fMaxScale:* The max model scale this unit should scale to. Can be anything if bScale is false.
 Update this building's health over the build time.
 
-**SetFireEffect(bFireEffect)**
+**SetFireEffect(fireEffect)**
+*fireEffect:* The modifier to add when the building's health is below 50%. Default is `modifier_jakiro_liquid_fire_burn`. Set to nil to have no effect.
 
-Whether this building should have a fire effect when its HP gets below 50%.
 
 **GetFireEffect()**
-
-Return whether this building should have a fire effect when its HP gets below 50%.
+Return the building's fire effect if it's not nil.
 
 **(3) BuildingHelper:AddUnit(unit)**
 
