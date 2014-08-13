@@ -68,6 +68,7 @@ Returns the custom radius which will be used for determining the pathing map for
 **(4) BuildingHelper:BlockGridNavSquares(nMapLength)**
 
 Adds the squares blocked by the GridNav to the custom grid's blocked squares. This means buildings can't be placed on squares blocked by the GridNav. Not called by default.
+
 nMapLength: The map's length on one side. Map must be square shaped.
 
 Other functions:
@@ -78,6 +79,7 @@ Returns whether this rectangular area contains a blocked square (bool).
 **BuildingHelper:SetForceUnitsAway(bForceAway)**
 
 Whether units should be forced away when a building is built on top of them. If false, buildings can not be built on top of units. Default is false.
+
 Owners of buildings can always build buildings on top of themselves, and they are always forced away.
 
 **snapToGrid64(coord)**
