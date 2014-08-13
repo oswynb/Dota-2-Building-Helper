@@ -1,7 +1,7 @@
 --[[
 Building Helper for RTS-style and tower defense maps in Dota 2.
 Developed by Myll
-Credits to BMD for the timer code.
+Credits to Ash47 and BMD for the timer code.
 Please give credit in your work if you use this. Thanks, and happy modding!
 ]]
 
