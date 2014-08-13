@@ -30,10 +30,11 @@ function getHardFarmPoint(keys)
 		--Fire a game event here and use Actionscript to let the player know he can't place a building at this spot.
 		return
 	else
-	caster:SetGold(caster:GetGold()-5, false)
-	local farm = CreateUnitByName("npc_hard_farm", point, false, nil, nil, caster:GetTeam())
-	BuildingHelper:AddBuilding(farm)
-	farm:UpdateHealth(BUILD_TIME,true,.8)
-	farm:SetHullRadius(128)
-	farm:SetControllableByPlayer( plyID, true )
+		caster:SetGold(caster:GetGold()-5, false)
+		local farm = CreateUnitByName("npc_hard_farm", point, false, nil, nil, caster:GetTeam())
+		BuildingHelper:AddBuilding(farm)
+		farm:UpdateHealth(BUILD_TIME,true,.8)
+		farm:SetHullRadius(128)
+		farm:SetControllableByPlayer( plyID, true )
+	end
 end
