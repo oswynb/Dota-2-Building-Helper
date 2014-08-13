@@ -23,6 +23,8 @@ Returns -1 if a building can't be built at the location.
 
 **(2) BuildingHelper:AddBuilding(building)**
 
+*building:* The unit entity representing this building.
+
 Sub-functions of (2):
 
 **RemoveBuilding(nSize, bKill)**
