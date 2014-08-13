@@ -17,7 +17,7 @@ Adds a new building to the custom grid given the target point, the size, and the
 
 Returns -1 if a building can't be built at the location.
 
-**(2) BuildingHelper:AddBuilding(building, vOwnersHero)**
+**(2) BuildingHelper:AddBuilding(building)**
 
 Sub-functions of (2):
 
