@@ -3,8 +3,6 @@ Building Helper for RTS-style and tower defense maps in Dota 2.
 Developed by Myll
 Credits to Ash47 and BMD for the timer code.
 Please give credit in your work if you use this. Thanks, and happy modding!
-
-Set BH_Z to a little above whatever your map's base Z-level is if you want to print out squares with the functions at the bottom.
 ]]
 
 BUILDINGHELPER_THINK = 0.03
@@ -492,6 +490,7 @@ function makeBoundingRect(leftBorderX, rightBorderX, topBorderY, bottomBorderY)
 	return {leftBorderX = leftBorderX, rightBorderX = rightBorderX, topBorderY = topBorderY, bottomBorderY = bottomBorderY}
 end
 
+--Set BH_Z to a little above whatever your map's base Z-level is if you want to print out squares with these functions.
 function BuildingHelper:PrintSquareFromCenterPoint(v)
 			DebugDrawLine(Vector(v.x-32,v.y+32,BH_Z), Vector(v.x+32,v.y+32,BH_Z), 255, 0, 0, false, 100)
 			DebugDrawLine(Vector(v.x-32,v.y+32,BH_Z), Vector(v.x-32,v.y-32,BH_Z), 255, 0, 0, false, 100)
