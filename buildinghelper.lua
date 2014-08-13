@@ -288,10 +288,6 @@ function BuildingHelper:AddBuilding(building)
 	building.fCurrentScale = 0.0
 	building.bScale=false
 	
-	function building:SetForceUnitsAway(bForce)
-		
-	end
-	
 	for i,unit in ipairs(BH_UNITS) do
 		if unit.bNeedsToJump then
 			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
