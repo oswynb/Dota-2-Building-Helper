@@ -37,42 +37,42 @@ Update this building's health over the build time.
 **SetFireEffect(bFireEffect)**
 Whether this building should have a fire effect when its HP gets below 50%.
 
-GetFireEffect()
+**GetFireEffect()**
 Return whether this building should have a fire effect when its HP gets below 50%.
 
-(3) BuildingHelper:AddUnit(unit)
+**(3) BuildingHelper:AddUnit(unit)**
 Adds functionality to unit interactions with buildings.
 Sub-functions of (3):
 
-GeneratePathingMap()
+**GeneratePathingMap()**
 Generates a pathing map for this unit. Primarily used to determine if a unit is interfering with building placement. Returns table full of center points of squares which the unit occupies.
 
-SetCustomRadius(nRadius)
+**SetCustomRadius(nRadius)**
 Sets a custom radius which will be used for determining the pathing map for a unit. Default is set to the unit's hull radius.
 
-GetCustomRadius()
+**GetCustomRadius()**
 Returns the custom radius which will be used for determining the pathing map for a unit.
 
-(4) BuildingHelper:BlockGridNavSquares(nMapLength)
+**(4) BuildingHelper:BlockGridNavSquares(nMapLength)**
 Adds the squares blocked by the GridNav to the custom grid's blocked squares. This means buildings can't be placed on squares blocked by the GridNav. Not called by default.
 nMapLength: The map's length on one side. Map must be square shaped.
 
 Other functions:
-BuildingHelper:IsRectangularAreaBlocked(boundingRect)
+**BuildingHelper:IsRectangularAreaBlocked(boundingRect)**
 Returns whether this rectangular area contains a blocked square (bool).
 
-BuildingHelper:SetForceUnitsAway(bForceAway)
+**BuildingHelper:SetForceUnitsAway(bForceAway)**
 Whether units should be forced away when a building is built on top of them. If false, buildings can not be built on top of units. Default is false.
 Owners of buildings can always build buildings on top of themselves, and they are always forced away.
 
-snapToGrid64(coord)
+**snapToGrid64(coord)**
 Snaps a coordinate to the 64-resolution grid.
 
-snapToGrid32(coord)
+**snapToGrid32(coord)**
 Snaps a coordinate to the 32-resolution grid.
 
-makeBoundingRect(leftBorderX, rightBorderX, topBorderY, bottomBorderY)
+**makeBoundingRect(leftBorderX, rightBorderX, topBorderY, bottomBorderY)**
 Quick way to define a bounding rectangle.
 
-tableContains(list, element)
+**tableContains(list, element)**
 Return true if the table contains this element, returns false otherwise.
