@@ -4,7 +4,7 @@ Developed by Myll
 Credits to Ash47 and BMD for the timer code.
 Please give credit in your work if you use this. Thanks, and happy modding!
 
-Set BH_Z to a little about whatever your map's base Z-level is if you want to print out squares with the functions at the bottom.
+Set BH_Z to a little above whatever your map's base Z-level is if you want to print out squares with the functions at the bottom.
 ]]
 
 BUILDINGHELPER_THINK = 0.03
