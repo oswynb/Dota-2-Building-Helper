@@ -71,13 +71,11 @@ Sets a custom radius which will be used for determining the pathing map for a un
 
 Returns the custom radius which will be used for determining the pathing map for a unit.
 
-**(4) BuildingHelper:BlockGridNavSquares(nMapLength)**
+**BuildingHelper:BlockGridNavSquares(nMapLength)**
 
 Adds the squares blocked by the GridNav to the custom grid's blocked squares. This means buildings can't be placed on squares blocked by the GridNav. Not called by default.
 
 nMapLength: The map's length on one side. Map must be square shaped.
-
-Other functions:
 
 **BuildingHelper:IsRectangularAreaBlocked(boundingRect)**
 Returns whether this rectangular area contains a blocked square (bool).
@@ -88,18 +86,24 @@ Whether units should be forced away when a building is built on top of them. If 
 
 Owners of buildings can always build buildings on top of themselves, and they are always forced away.
 
-**snapToGrid64(coord)**
+Other functions:
+
+*BuildingHelper:PrintSquareFromCenterPoint(v)*
+
+*BuildingHelper:PrintSquareFromCenterPointShort(v)*
+
+*YourGameMode:DisplayBuildingGrids()*
+
+*snapToGrid64(coord)*
 
 Snaps a coordinate to the 64-resolution grid.
 
-**snapToGrid32(coord)**
+*snapToGrid32(coord)*
 
 Snaps a coordinate to the 32-resolution grid, but not the 64 grid.
 
-**makeBoundingRect(leftBorderX, rightBorderX, topBorderY, bottomBorderY)**
+*makeBoundingRect(leftBorderX, rightBorderX, topBorderY, bottomBorderY)*
 
-Quick way to define a bounding rectangle.
-
-**tableContains(list, element)**
+*tableContains(list, element)*
 
 Return true if the table contains this element, returns false otherwise.
