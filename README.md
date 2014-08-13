@@ -5,37 +5,36 @@ Building Helper Library for Dota 2 Modding
 
 Author: Myll
 
-(1) BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)
+**(1) BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)**
 
 Adds a new building to the custom grid given the target point, the size, and the owner's hero.
 
-vPoint: The raw point where the user wants to place the building.
+*vPoint*: The raw point where the user wants to place the building.
 
-nSize: Length of 1 side of the building. Buildings must be square shaped. Example: nSize=2 would be 2x64 units. So, the building covers (2x64) by (2x64) units, or a total of 4 squares.
+*nSize:* Length of 1 side of the building. Buildings must be square shaped. Example: nSize=2 would be 2x64 units. So, the building covers (2x64) by (2x64) units, or a total of 4 squares.
 
-vOwnersHero: The hero which owns this building.
+*vOwnersHero:* The hero which owns this building.
 
 Returns -1 if a building can't be built at the location.
 
-(2) BuildingHelper:AddBuilding(building, vOwnersHero)
-Adds functionality to the actual unit representing the building.
+**(2) BuildingHelper:AddBuilding(building, vOwnersHero)**
 Sub-functions of (2):
 
-RemoveBuilding(nSize, bKill)
+**RemoveBuilding(nSize, bKill)**
 Removes this building from the custom grid.
-nSize: The size of the building (see above).
-bKill: Whether to ForceKill(false) the building or not.
+*nSize:* The size of the building (see above).
+*bKill:* Whether to ForceKill(false) the building or not.
 
-SetOwner(vOwner)
+**SetOwner(vOwner)**
 Sets the owner of this building (a hero).
 
-GetOwner()
+**GetOwner()**
 Returns the owner of this building (a hero).
 
-UpdateHealth(fBuildTime)
+**UpdateHealth(fBuildTime)**
 Update this building's health over the build time.
 
-SetFireEffect(bFireEffect)
+**SetFireEffect(bFireEffect)**
 Whether this building should have a fire effect when its HP gets below 50%.
 
 GetFireEffect()
