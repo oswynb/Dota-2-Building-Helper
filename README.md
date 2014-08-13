@@ -18,6 +18,7 @@ Adds a new building to the custom grid given the target point, the size, and the
 Returns -1 if a building can't be built at the location.
 
 **(2) BuildingHelper:AddBuilding(building, vOwnersHero)**
+
 Sub-functions of (2):
 
 **RemoveBuilding(nSize, bKill)**
@@ -58,6 +59,7 @@ Adds the squares blocked by the GridNav to the custom grid's blocked squares. Th
 nMapLength: The map's length on one side. Map must be square shaped.
 
 Other functions:
+
 **BuildingHelper:IsRectangularAreaBlocked(boundingRect)**
 Returns whether this rectangular area contains a blocked square (bool).
 
