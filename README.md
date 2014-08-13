@@ -88,7 +88,7 @@ Snaps a coordinate to the 64-resolution grid.
 
 **snapToGrid32(coord)**
 
-Snaps a coordinate to the 32-resolution grid.
+Snaps a coordinate to the 32-resolution grid, but not the 64 grid.
 
 **makeBoundingRect(leftBorderX, rightBorderX, topBorderY, bottomBorderY)**
 
