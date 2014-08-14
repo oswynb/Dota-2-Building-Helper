@@ -9,7 +9,6 @@ BUILD_TIME=1.0
 
 function getBuildingPoint(keys)
 	local point = BuildingHelper:AddBuildingToGrid(keys.target_points[1], 2, keys.caster)
-	-- Create model and do general initiation.
 	if point ~= -1 then
 		local farm = CreateUnitByName("npc_normal_farm", point, false, nil, nil, keys.caster:GetTeam())
 		BuildingHelper:AddBuilding(farm)
