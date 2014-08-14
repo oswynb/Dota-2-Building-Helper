@@ -12,7 +12,6 @@ BH_UNITS = {}
 FORCE_UNITS_AWAY = false
 FIRE_GAME_EVENTS = false
 BH_Z=129
---vBuildingsBeingBuilt = {}
 
 if BuildingHelper == nil then
 	print('[BUILDING HELPER] Creating Building Helper')
@@ -272,7 +271,6 @@ function BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)
 end
 
 function BuildingHelper:AddBuilding(building)
-	--building.PhysicsTimer = self.timers[unit.PhysicsTimerName]
 	building.BuildingHelperTimer = self.timers[building.BuildingHelperTimer]
 	building.bUpdatingHealth = false
 	building.nBuildTime = 1
@@ -423,7 +421,6 @@ function BuildingHelper:IsRectangularAreaBlocked(boundingRect)
   return false
 end
 
--- Find the closest Y from y which snaps to the 64 grid.
 function snapToGrid64(coord)
 	local lowerBounds=coord
 	local upperBounds=coord
@@ -446,7 +443,6 @@ function snapToGrid64(coord)
 	return gridCoord
 end
 
--- Find the closest X from x which snaps to the 32 grid, but not the 64 grid.
 function snapToGrid32(coord)
 	local floorCoord = math.floor(coord)
 	for i=floorCoord,floorCoord+32 do
