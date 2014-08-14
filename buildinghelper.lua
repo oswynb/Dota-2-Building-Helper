@@ -159,6 +159,7 @@ function BuildingHelper:AddUnit(unit)
 	unit.bCantBeBuiltOn = true
 	unit.nCustomRadius = unit:GetHullRadius()
 	unit.bForceAway = false
+	unit.bPathingMapGenerated = false
 	
 	if tableContains(BH_UNITS, unit) == false then
 		table.insert(BH_UNITS, unit)
@@ -200,6 +201,7 @@ function BuildingHelper:AddUnit(unit)
 			end
 		end
 		unit.vPathingMap = pathmap
+		unit.bPathingMapGenerated = true
 		return pathmap
 	end
 end
@@ -239,12 +241,16 @@ function BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)
 	end
 	-- The spot is not blocked, so add it to the closed squares.
 	local closed = {}
-	vOwnersHero:GeneratePathingMap()
+	if tableContains(BH_UNITS, vOwnersHero) then
+		vOwnersHero:GeneratePathingMap()
+	else
+		print("You haven't added the owner as a unit. No pathing map will be generated, and the owner may get stuck after building the building.")
+	end
 	for x=buildingRect.leftBorderX+32,buildingRect.rightBorderX-32,64 do
 		for y=buildingRect.topBorderY-32,buildingRect.bottomBorderY+32,-64 do
 			if vOwnersHero ~= nil and vOwnersHero.vPathingMap ~= nil then
 				--print("Checking for jump...")
-				if tableContains(vOwnersHero.vPathingMap, Vector(x,y,BH_Z)) then
+				if vOwnersHero.bPathingMapGenerated and tableContains(vOwnersHero.vPathingMap, Vector(x,y,BH_Z)) then
 					--print('Owner jump')
 					vOwnersHero.bNeedsToJump=true
 				end
@@ -486,7 +492,9 @@ function BuildingHelper:PrintSquareFromCenterPointShort(v)
 			DebugDrawLine(Vector(v.x+32,v.y-32,BH_Z), Vector(v.x+32,v.y+32,BH_Z), 255, 0, 0, false, .1)
 end
 
---[[function YourGameMode:DisplayBuildingGrids()
+--[[Put this line in InitGameMode to use this function: Convars:RegisterCommand( "buildings", Dynamic_Wrap(YourGameMode, 'DisplayBuildingGrids'), "blah", 0 )
+
+function YourGameMode:DisplayBuildingGrids()
   print( '******* Displaying Building Grids ***************' )
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
