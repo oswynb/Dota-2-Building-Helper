@@ -500,7 +500,7 @@ function BuildingHelper:PrintSquareFromCenterPointShort(v)
 			DebugDrawLine(Vector(v.x+32,v.y-32,BH_Z), Vector(v.x+32,v.y+32,BH_Z), 255, 0, 0, false, .1)
 end
 
-function YourGameMode:DisplayBuildingGrids()
+--[[function YourGameMode:DisplayBuildingGrids()
   print( '******* Displaying Building Grids ***************' )
   local cmdPlayer = Convars:GetCommandClient()
   if cmdPlayer then
@@ -515,6 +515,6 @@ function YourGameMode:DisplayBuildingGrids()
     end
   end
   print( '*********************************************' )
-end
+end]]
 
 BuildingHelper:start()
