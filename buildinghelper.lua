@@ -268,7 +268,6 @@ function BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)
 	table.insert(BUILDING_SQUARES, closed)
 	--print("Total buildings closed: " .. #BUILDING_SQUARES)
 	print("Successfully added " .. #closed .. " closed squares.")
-	--print("Building successfully added. Returning the point where you should place your building.")
 	return vBuildingCenter
 end
 
@@ -324,9 +323,7 @@ function BuildingHelper:AddBuilding(building)
 	
 	function building:RemoveBuilding(nSize, bKill)
 		local center = building:GetAbsOrigin()
-		local centerX = center.x
-		local centerY = center.y
-		
+		--DebugDrawCircle( center, Vector(0,255,0), 13.0, 3, false, 50 )
 		--[[Error check
 		if ((nSize%2 ~= 0) and (centerX%32 == 0 and centerY%32 == 0)) == false then
 			print("Invalid center! Returning.")
@@ -335,14 +332,12 @@ function BuildingHelper:AddBuilding(building)
 			print("Invalid center! Returning.")
 			return
 		end]]
-		
-		local vBuildingCenter = Vector(centerX,centerY,center.z)
-		local halfSide = (nSize/2)*64
-		local buildingRect = {leftBorderX = centerX-halfSide, 
-			rightBorderX = centerX+halfSide, 
-			topBorderY = centerY+halfSide, 
-			bottomBorderY = centerY-halfSide}
-		
+		local halfSide = (nSize/2.0)*64
+		local buildingRect = {leftBorderX = center.x-halfSide, 
+			rightBorderX = center.x+halfSide, 
+			topBorderY = center.y+halfSide, 
+			bottomBorderY = center.y-halfSide}
+				
 		for x=buildingRect.leftBorderX+32,buildingRect.rightBorderX-32,64 do
 			for y=buildingRect.topBorderY-32,buildingRect.bottomBorderY+32,-64 do
 				for i,v in ipairs(BUILDING_SQUARES) do
@@ -352,15 +347,10 @@ function BuildingHelper:AddBuilding(building)
 						if bKill then
 							building:SetAbsOrigin(Vector(center.x,center.y,center.z-200))
 							building:ForceKill(true)
-							return
 						end
 					end
 				end
 			end
-		end
-		if bKill then
-			--building:SetAbsOrigin(vPoint+Vector(0,0,vPoint.z-150))
-			building:ForceKill(false)
 		end
 	end
 	
@@ -488,10 +478,10 @@ end
 
 --Set BH_Z to a little above whatever your map's base Z-level is if you want to print out squares with these functions.
 function BuildingHelper:PrintSquareFromCenterPoint(v)
-			DebugDrawLine(Vector(v.x-32,v.y+32,BH_Z), Vector(v.x+32,v.y+32,BH_Z), 255, 0, 0, false, 100)
-			DebugDrawLine(Vector(v.x-32,v.y+32,BH_Z), Vector(v.x-32,v.y-32,BH_Z), 255, 0, 0, false, 100)
-			DebugDrawLine(Vector(v.x-32,v.y-32,BH_Z), Vector(v.x+32,v.y-32,BH_Z), 255, 0, 0, false, 100)
-			DebugDrawLine(Vector(v.x+32,v.y-32,BH_Z), Vector(v.x+32,v.y+32,BH_Z), 255, 0, 0, false, 100)
+			DebugDrawLine(Vector(v.x-32,v.y+32,BH_Z), Vector(v.x+32,v.y+32,BH_Z), 255, 0, 0, false, 30)
+			DebugDrawLine(Vector(v.x-32,v.y+32,BH_Z), Vector(v.x-32,v.y-32,BH_Z), 255, 0, 0, false, 30)
+			DebugDrawLine(Vector(v.x-32,v.y-32,BH_Z), Vector(v.x+32,v.y-32,BH_Z), 255, 0, 0, false, 30)
+			DebugDrawLine(Vector(v.x+32,v.y-32,BH_Z), Vector(v.x+32,v.y+32,BH_Z), 255, 0, 0, false, 30)
 end
 function BuildingHelper:PrintSquareFromCenterPointShort(v)
 			DebugDrawLine(Vector(v.x-32,v.y+32,BH_Z), Vector(v.x+32,v.y+32,BH_Z), 255, 0, 0, false, .1)
