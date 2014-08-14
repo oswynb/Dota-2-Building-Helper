@@ -137,8 +137,8 @@ end
 function BuildingHelper:BlockGridNavSquares(nMapLength)
 	local halfLength = nMapLength/2
 	-- Check the center of each square on the map to see if it's blocked by the GridNav.
-	for x=-halfLength+32, halfLength-32, 32 do
-		for y=halfLength-32, -halfLength+32,-32 do
+	for x=-halfLength+32, halfLength-32, 64 do
+		for y=halfLength-32, -halfLength+32,-64 do
 			if GridNav:IsTraversable(Vector(x,y,BH_Z)) == false or GridNav:IsBlocked(Vector(x,y,BH_Z)) then
 				table.insert(GRIDNAV_SQUARES, Vector(x,y,BH_Z))
 			end
@@ -206,6 +206,12 @@ function BuildingHelper:AddUnit(unit)
 	end
 end
 
+function BuildingHelper:RemoveUnit(unit)
+	if IsValidEntity(unit) and tableContains(BH_UNITS, unit) then
+		table.remove(BH_UNITS, unit)
+	end
+end
+
 function BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)
 	-- Remember, our blocked squares are defined according to the square's center.
 	local startX = snapToGrid32(vPoint.x)
@@ -231,6 +237,13 @@ function BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)
 		print("Building location blocked. Returning -1")
 		-- It'd be wise to fire a game event when this returns -1 and use Actionscript to notify the player that the spot is blocked.
 		return -1
+	end
+	
+	-- Add every player's hero to BH_UNITS if it's not already.
+	for i,v in ipairs(HeroList:GetAllHeroes()) do
+		if v:GetOwner() ~= nil and tableContains(BH_UNITS, v) == false then
+			self:AddUnit(v)
+		end
 	end
 	
 	-- Clean up BH_UNITS before we use it.
