@@ -30,7 +30,7 @@ Sub-functions of (2):
 **RemoveBuilding(nSize, bKill)**
 
 Removes this building from the custom grid.
-*nSize:* The size of the building (see above).
+*nSize:* The size of the building (see above). Must be the same size as when you added the building.
 *bKill:* Whether to ForceKill(true) the building or not. The building will also move -200 units in the Z direction. Set to false if you want your own death effects.
 
 **SetOwner(vOwner)**
