@@ -245,9 +245,9 @@ function BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)
 	end
 	
 	-- Clean up BH_UNITS before we use it.
-	for i,v in pairs(BH_UNITS) do
-		if IsValidEntity(i) == false then
-			BH_UNITS[i] = nil
+	for unit,e in pairs(BH_UNITS) do
+		if (not IsValidEntity(unit)) then
+			BH_UNITS[unit] = nil
 		end
 	end
 	-- The spot is not blocked, so add it to the closed squares.
@@ -265,7 +265,7 @@ function BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)
 					--print('Owner jump')
 					vOwnersHero.bNeedsToJump=true
 				end
-				for i,unit in pairs(BH_UNITS) do
+				for unit,e in pairs(BH_UNITS) do
 					unit:GeneratePathingMap()
 					if unit ~= vOwnersHero and unit.vPathingMap[Vector(x,y,BH_Z)] ~= nil then
 						if FORCE_UNITS_AWAY then
@@ -302,7 +302,7 @@ function BuildingHelper:AddBuilding(building)
 	building.fCurrentScale = 0.0
 	building.bScale=false
 	
-	for i,unit in pairs(BH_UNITS) do
+	for unit,e in pairs(BH_UNITS) do
 		if unit.bNeedsToJump then
 			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
 			unit.bNeedsToJump=false
@@ -355,10 +355,10 @@ function BuildingHelper:AddBuilding(building)
 				
 		for x=buildingRect.leftBorderX+32,buildingRect.rightBorderX-32,64 do
 			for y=buildingRect.topBorderY-32,buildingRect.bottomBorderY+32,-64 do
-				for i,v in pairs(BUILDING_SQUARES) do
+				for v,e in pairs(BUILDING_SQUARES) do
 					if v[Vector(x,y,BH_Z)] ~= nil then
 						print("Removing " .. #v .. " squares.")
-						BUILDING_SQUARES[i] = nil
+						BUILDING_SQUARES[v] = nil
 						if bKill then
 							building:SetAbsOrigin(Vector(center.x,center.y,center.z-200))
 							building:ForceKill(true)
@@ -428,8 +428,8 @@ function BuildingHelper:IsRectangularAreaBlocked(boundingRect)
       if GRIDNAV_SQUARES[Vector(x,y,BH_Z)] ~= nil then
 		return true
       end
-      for i,v in pairs(BUILDING_SQUARES) do
-        if v[Vector(x,y,BH_Z)] then
+      for v,e in pairs(BUILDING_SQUARES) do
+        if v[Vector(x,y,BH_Z)] ~= nil then
           return true
         end
       end
