@@ -278,7 +278,7 @@ function BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)
 				end
 			end
 			
-			closed[Vector(x,y,BH_Z))] = true
+			closed[Vector(x,y,BH_Z)] = true
 		end
 	end
 	BUILDING_SQUARES[closed] = true
