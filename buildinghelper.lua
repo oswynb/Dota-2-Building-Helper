@@ -139,7 +139,7 @@ function BuildingHelper:BlockGridNavSquares(nMapLength)
 	-- Check the center of each square on the map to see if it's blocked by the GridNav.
 	for x=-halfLength+32, halfLength-32, 64 do
 		for y=halfLength-32, -halfLength+32,-64 do
-			if GridNav:IsTraversable(Vector(x,y,BH_Z)) == false or GridNav:IsBlocked(Vector(x,y,BH_Z)) then
+			if (not GridNav:IsTraversable(Vector(x,y,BH_Z))) or GridNav:IsBlocked(Vector(x,y,BH_Z)) then
 				GRIDNAV_SQUARES[Vector(x,y,BH_Z)] = true
 			end
 		end
@@ -238,7 +238,7 @@ function BuildingHelper:AddBuildingToGrid(vPoint, nSize, vOwnersHero)
 	end
 	
 	-- Add every player's hero to BH_UNITS if it's not already.
-	for i,v in pairs(HeroList:GetAllHeroes()) do
+	for i,v in ipairs(HeroList:GetAllHeroes()) do
 		if v:GetOwner() ~= nil then
 			self:AddUnit(v)
 		end
